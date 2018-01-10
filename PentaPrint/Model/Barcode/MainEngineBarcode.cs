@@ -80,7 +80,7 @@ namespace PentaPrint.Model
         public override string GetPrint()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "PentaPrint.Model.Barcode.MainEngineTemplate.txt";
+            var resourceName = "PentaPrint.Model.Barcode.MainEngineTemplateLowRes.txt";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))
             {

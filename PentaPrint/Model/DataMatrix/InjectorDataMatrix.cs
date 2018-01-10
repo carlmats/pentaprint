@@ -145,7 +145,7 @@ namespace PentaPrint.Model
         public override string GetPrint()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "PentaPrint.Model.DataMatrix.InjectorTemplate.txt";
+            var resourceName = "PentaPrint.Model.DataMatrix.InjectorTemplateLowRes.txt";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))
             {
