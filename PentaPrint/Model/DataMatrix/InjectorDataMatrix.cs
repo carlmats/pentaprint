@@ -333,11 +333,11 @@ namespace PentaPrint.Model
             short sum = (short)iqa.Sum(s => s);
             sum -= (short)iqa[0]; //Subtract classification
             sum -= (short)iqa[5]; //Subtract current checksum
-            short highNibble = (byte)((0xF0 & sum) >>4);
+            short highNibble = (byte)((0xF0 & sum) >> 4);
             short lowNibble = (byte)(0x0F & sum);
 
-
-            var checksum = (short)((int)BoschSign(highNibble,4) + (int)BoschSign(lowNibble,4) +1);
+            var checksum = (short)((lowNibble + highNibble) + 1);
+            checksum = (short)(checksum & 0x0F);
             checksum = BoschSign(checksum, 4);
 
             return checksum;
@@ -355,9 +355,6 @@ namespace PentaPrint.Model
                 }
                 result = (short)((int)item | minus) ;
             }
-            if (item < -8)
-                return (byte)(0x0F & result);
-
 
             return result;
         }
